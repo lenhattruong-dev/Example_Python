@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content%}
+<h1>Register</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }} <br>
+        {{ form.username(size=28)}}
+        {% for error in form.username.errors %}
+            <span style="color: red;">Vui lòng nhập thông tin</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }} <br>
+        {{ form.password(size=28)}}
+        {% for error in form.password.errors %}
+        <span style="color: red;">Vui lòng nhập thông tin</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.password2.label }} <br>
+        {{ form.password2(size=28)}}
+        {% for error in form.password2.errors %}
+        <span style="color: red;">Mật khẩu không khớp!</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.submit()}}
+    </p>
+</form>           
+{% endblock%}
